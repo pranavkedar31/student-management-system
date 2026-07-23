@@ -18,7 +18,13 @@ app.add_middleware(
 
 
 
-connection=psycopg2.connect(os.getenv("DATABASE_URL"))
+connection=psycopg2.connect(
+    host=os.getenv("HOST"),
+    port =os.getenv("PORT"),
+    database=os.getenv("DATABASE"),
+    user=os.getenv("USER"),
+    password=os.getenv("PASSWORD")
+)
 
 
 cursor= connection.cursor()
